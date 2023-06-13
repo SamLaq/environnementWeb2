@@ -1,0 +1,266 @@
+COURS 7
+
+/home/slaquerre
+Créer un répertoire nommé home/slaquerre/travaux/etudiants
+A.1. mkdir /home/slaquerre/travaux
+A.2. mkdir /home/slaquerre/travaux/etudiants
+
+A. mkdir --parents /home/slaquerre/travaux/etudiants 
+A. mkdir -p /home/slaquerre/travaux/etudiants 
+R. mkdir -p ./travaux/etudiants
+R. mkdir -p travaux/etudiants 
+
+
+COURS 8 
+locate: regarde dans un fichier indexé
+The locate command finds files in Linux using the file name. locate is used for obtaining instantaneous results,and it is an essential utility when speed is a priority
+Il faut faire un sudo updatedb avant la commande pour mettre à jour la base de donnée
+locate --count .jpg (combien y a t-il de fichiers avec .jpg)
+
+
+find: Regarde les fichiers un apres l'autre long comme recherche
+La commande find permet la recherche des fichiers dans une hiérarchie de répertoires … >> find <Chemin de recherche> <Option(s)> <Critère(s) de recherche>
+La commande est suivie du chemin d’accès au répertoire et des options de recherche. Une option de recherche est précédée d’un trait d’union suivi de l’option elle-même.
+Le répertoire utilisé par défaut est le répertoire courant et l'option par défaut est -print (affichage du résultat à l’écran).
+Une expression peut être constituée d'opérateurs, d'options, de tests et d'actions.
+ex: find . -name essai*
+-size ... (permet de trouver les fichiers de tel taille)
+-ctime (created), -mtime (modifié), -atime (access): (Recherche par date de création, date de dernière modification ou date de dernier accès)
+-perm Recherche par autorisations d’accès
+La commande find est récursive. Peu importe le répertoire spécifié, elle effectue une recherche dans le répertoire spécifié, et les sous répertoires qu'il contient, et ainsi de suite …
+iname = ignore case
+commande | commande
+
+less is a Linux command used for filtering and viewing text files one screen page at a time.
+wc stands for word count.
+wc -c /etc/passwd
+q = quit 
+
+grep: cherche la chaîne de caractères « <expression> » à l'intérieur des fichiers ou des répertoires spécifiés et affiche les lignes correspondantes. Avec l'option -R, la recherche s'effectue également dans tous les sous-répertoires compris dans le répertoire donné. ... Extrait la ligne contenant le mot slaquerre
+
+sort: tries les résultats
+
+
+--RÉVISION--
+
+COURS 1- Introduction à Linux
+
+-Système d'exploitation: Programme installé sur un ordinateur et qui agit un peu comme un chef d'orchestre. C'est un interface entre l'utilisateur et l'ordinateur.
+Le système d’exploitation a aussi comme responsabilité la gestion des ressources:
+    processeur (CPU) ;
+    mémoire vive (Random Access Memory ou RAM) ;
+    interface graphique ;
+    espace de stockage ;
+    ...
+-En bref:
+    L’ordinateur est démarré ;
+    Le système d’exploitation est chargé et présente une interface (CLI – Command Line Interface ou GUI – Graphic User Interface) ;
+    On peut alors utiliser ses programmes et applications de tout genre à l’aide de périphériques d’entrée (input) tels qu’un clavier, une souris, … et de périphériques de sortie (output) tels que l’écran, une imprimante, 
+-Linus Torvalds cherche à développer des outils de production sur ne version d’Unix qui fonctionne sur des ordinateurs personnels.
+Linux est donc:
+    Un descendant direct d’une longue lignée de systèmes d’exploitation qui remonte jusqu’à Unix ;
+    Il a gardé la même philosophie initiale : des programmes qui font une seule opération essentielle du système, mais qui la font parfaitement ;
+    Il est totalement intégré dans le mouvement du libre, ce qui en fait un système d’exploitation ouvert et gratuit.
+-Aujourd’hui. on retrouve Linux un peu partout:
+    Android pour les téléphones intelligents basé sur Linux développé et conçu par Google ;
+    Des systèmes embarqués spécialisés dans des tâches précises ;
+    chromeOS, est un système d'exploitation basé sur Linux développé et conçu par Google ;
+
+-Linux est un système d’exploitation monolithique modulaire. Cela signifie que tout le code de Linux est exécuté dans un objet unique en mémoire de l’ordinateur. C’est ce qu’on appelle le noyau. Le noyau Linux est la base, le cœur d’un système Linux.
+Le noyau contient toutes les fonctions rendues par le système d’exploitation, comme la gestion de la mémoire, du processeur, des périphériques de stockage, de l’interface réseau
+-Modulaire: Ce terme signifie que le code du noyau Linux est organisé sous la forme de modules. Il s'agit donc de blocs de code. Cette organisation présente un avantage important: Il est possible d'ajouter et/ou de supprimer des modules dans un noyau Linux en cours d'exécution, sans avoir à l'arrêter ou à le redémarrer
+
+-Il existe beaucoup de distributions, celles ci sont orientées vers un besoin en particulier
+Certaines sont orientées sécurité, d'autres multimédia, d'autres serveur ou encore réseau:
+    Les distributions orientées serveur sont très techniques et s'adressent aux                   administrateurs Linux qui souhaitent déployer un serveur web ou encore une base de            données
+    Les distributions orientées poste de travail sont beaucoup plus conviviles (                  environnement graphique et orientées utilisateurs)
+
+-Environnement de bureau = environnement graphique. Fait référence à un bureau sur lequel on travaille: il y a des dossiers, des fichiers, une corbeille
+
+-Interface en ligne de commande (CLI): interface avec laquelle la communication entre l'utilisateur et l'ordinateur s'effectue en mode texte:
+    L'utilisateur saisait une ligne de commande pour demander à l'ordinateur d'effectuer une      opération.
+    L'ordinateur affiche du texte correspondant au résultat de l'exécution des commandes          saisies ou à des questions qu'un logiciel pose à l'utilisateur.
+
+En résumé …
+-Linux est un système d’exploitation hérité du système Unix ;
+-Il est diffusé sous licence publique générale, une licence libre, et est gratuit ;
+-La philosophie de linux … Faire une chose et la faire parfaitement ;
+-Le noyau de Linux est monolithique et modulaire ;
+-Ses versions sont numérotées, et ses sources sont disponibles sur le site de Linux Kernel Archives ;
+-Une distribution Linux se compose d’un noyau, de paquets et d’outils pour gérer leurs dépendances ;
+-Les distributions sont développées pour répondre à un besoin (serveur, poste de travail ou autre) ;
+-Debian, RHEL et Slackware sont les 3 premières distributions Linux historiques ;
+-Les environnements de bureau sous Linux sont modulaires ;
+-Chaque module est responsable d’une fonction (authentification, gestion des fenêtres, du fond d’écran, ….) ;
+-Gnome, KDE et XFCE sont les 3 bureaux les plus connus de Linux ;
+-Les distributions peuvent aussi proposer leur propre bureau.
+
+COURS 02: (Arborescence du système de fichiers, commandes de base, chemin absolu/relatifs, documentation)
+-terminal: permet d'interagir avec le système et le matériel
+-Hyperviseur:Permet d'héberger plusieurs machines virtuelles
+-Connexion SSH et VNC: permet de connecter localement ou à distance sur un serveur. Possibilité de lancer plusieurs terminaux simultanément depuis le même environnement
+-Les protocoles SSH ou VNC permettent de prendre la main à distance sur un ordinateur
+-SSH :protocole de terminal virtuel texte 
+-VNC :protocole de terminal virtuel graphique
+
+-COnsole: pour linux, est un périphérique gérant le clavier et l'écran d'un ordinateur et qui permet d'interagir avec l'utilisateur à l'aide d'un terminal en mode texte
+-MobaXterm = émulateur de terminal : permet de se connecter à distance sur un serveur Linux 
+
+-Interfaces graphiques: Gnomes, KDE, autres...
+
+-Interpréteur de commandes: (souvent désigné comme étant le Shell) : outil de communication privilégié entre un administrateur et le système.
+-Le shell est un programme qui est exécuté lors de la connexion d'un utilisateur sur une console ou un terminal. Il présente une interface en mode texte qui permet de saisir des commandes
+-Le shell étant un programme en soi, il dispose de son propre protocole de communication. Un administrateur est obligé de saisir les commandes sur un format qui est adapté et compréhensible par cet interpréteur de commandes.
+Le principal rôle du shell est d'exécuter les commandes saisies par un utilisateur lui permettant d'effectuer des appels systèmes vers le noyau.
+Toutefois, l'interpréteur de commandes fournit également d'autres fonctionnalités essentielles permettant de faciliter la tâche de l'administrateur. Par exemple, la possibilité de traiter de manière automatique les résultats des commandes saisies, ou encore de rediriger ces informations dans des fichiers ou vers d'autres commandes.
+
+
+
+CLASSE RÉVISION!
+- Nom usagé toujours en minuscule, pas d'accents
+- Adresse IP est unique et codé sur 4 valeurs de 32bits (4 octets)
+- LAN (Local Area Network)
+- Sous Linux, les fichiers sont utilisés pour stocker des données telles que du texte, des images, des vidéos ou des programmes. Les répertoires sont eux aussi considérés comme des fichiers qui contiennent d'autres fichiers.
+- uname = tout en minuscule
+- ls : permet de lister les fichiers, si utilisée seule, elle liste les fichiers du répertoire courant
+- ls -l (-l = option) Au long 
+- ls --all (liste tous les fichiers du répertoire personnel, incluant les fichiers cachés)
+- Option vient modifier résultat de la commande
+- uname --all == uname -a 
+- sudo = agir en root sans etre root 
+- ls -l /home/tux   (ls= commande appelée , -l = option, /home/tux = argument) --> affiche en ordre alphabetique du nom de fichier
+- apt install ngnex(apt = commande, install = sous commande, ngnex = argument)
+- cowsay --help (cowsay = commande, --help = option)
+- man cowsay (man = commande , argument = cowsay)
+- q pour quit 
+- ctrl + c (sort de commande)
+- ctrl + l (clear)
+- /home/tux/devoir.doc (nom du fichier = tout le chemin) <-- chemin absolu a cause du slash
+- devoirs/slaquerre.doc (chemin relatif car pas de /)
+- chemin absolu est tjrs plus facile
+- touch (creer un fichier vide)
+- nano slaquerre (ecrire dans fichier)
+- si on ecrit pas le chemin, il va creer le document ou je suis (point de départ)
+- pwd (imprimer le nom complet du directory, savoir ou on se trouve)
+- rm fichier(remove un fichier )
+- mkdir repertoire (make directory)
+- cd (se deplacer dans repertoire)
+- cd .. (remonter au repertoire parent)
+- cd /etc (se deplacer vers le repertoire etc)
+- cd - (retourner dans repertoire precedant)
+- rmdir (effacer repertoire, mais ne marche pas sil y a du contenu)
+- rm -r (effacer recursivement, effacer tout le contenu, meme a linterieur)
+- cp (copy)
+- mv (move et renommer)
+- cp <quoi>    <ou>
+- mv <source> <cible>
+- cp /home/tux/gab.txt . ( par chemin absolu vers par chemin relatif)
+- mv /home/tux/slaquerre.doc /home/tux/tamor.doc (peut aussi renommer)
+- mv /home/tux/slaquerre.doc ./juliette.txt .
+- cp /home/slaquerre/* . (copie tous les fichiers a lendroit ou je suis)
+- cp /home/slaquerre/a*.doc .. (copie tous les fichiers qui commencent en a*doc dans le repertoire parents duquel je suis)
+- * (caractere joker, ex: ls --directory /etc/l* , liste tous les fichiers dans /etc/ et qui commence par l)
+- verbose (permet d'afficher a l'ecran ce que la commande effectue ex: mv --verbose nouveau.txt)
+- ls data_[0-6].txt ( afficher les fichier qui s'appeler data1 à data6)
+- locate et find: lance une recherche dans le systeme de fichiers (La commande locate utilise une base de données normalement mise à jour une fois par jour à l'aide d'une tâche planifiée tandis que la commande find recherche en parcourant le système de fichiers à chaque appel).
+- avant de faire la commande locate, il faut mettre a jour la base de données avec sudo--> updatedb
+- cat (concatener-commande qui prends plusieurs fichiers en entrée et les affiche bout a bout)--> cat <options> <fichiers> (cat /etc/hosts)
+- less (outil de pagination par defaut de plusieurs distributions sous linux)
+- head/tail (permet d'afficher les 10 premieres lignes ou dernieres lignes d'un fichier ex: head /etc/passwd)
+- cut ( extraire des champs d'un fichier texte)
+- sort (permet d'afficher un fichier trié sur un champ de données spécifique)
+- grep (agit comme un filtre. Elle permet d'extraire les lignes qui contiennent une chaîne de caractère fournie par l'utilisateur. Cette commande est très utile pour extraire une donnée spécifique dans un fichier complexe ex : grep root /etc/passwd)
+- wc ( commande qui compte le nombre de lignes de son entrée)
+
+
+COURS 17: GESTION DES UTILISATEURS ET DES GROUPES
+- sudo adduser bilel
+- cat /etc/passwd
+- su - bilel (switch user to bilel)
+- sudo groupadd developpeur (ajouter le groupe developpeur)
+- !! (repete derniere commande)
+- history (voir historique)
+- !320 (repete commande 320 de l'history)
+- sudo usermode --append --groups developpeurs bilel (ajouter bilel au groupe developpeurs)
+
+
+
+usagers vs groups 
+
+            fichier     répertoire
+read        lire        lister
+write       modifier    ajouter/supprimer
+execute     script      se déplacer (cd)
+
+- proprietaire (user)
+- groupe proprietaire (group)
+- other 
+
+- Seuls le propriétaire et Root peuvent modifier les permissions
+- chmod u= ( change les permissions) ex : chmod u= rwx (read, write, execute)
+- chmod g=rwx <nom du fichier ou repertoire>
+- chmod 0= rwx <nom du fichier ou repertoire>
+- chmod a=rwx 
+- chmod ugo =rwx (user, group, others)
+- sudo chown <nouveau proprietaire> devient propriétaire de <fichier>
+- sudo chown slaquerre samuel.txt 
+- Donnez les permissions 777
+- Donnez les permissions ugo rwx
+r=4 w=2 x=1
+3= wx 
+7= rwx
+6= rw 
+5= rx 
+
+- sudo apt install nginx
+- répertoire pour nginx: /var/www/html$
+- sudo chown --recursive slaquerre:slaquerre .
+
+-Carte graphique (Sous-systeme)
+- ls cpu 
+- top
+- lsblk
+- du / dh ( disk usage)
+- free (outputs a summary of RAM usage, including total, used, free, shared, and available memory and swap space)
+
+
+
+
+Classe Revision:
+- Connexion client / serveur 
+- MobaXterm / Linux SSH (SSH est le protocole qui lit la communication entre machine et serveur)
+- machine virtuelle
+- virtuel apptences
+- Instantannés (Enregistrement de style photo)
+- pwd (print working directory-    a quel endroit je suis)
+- chemin relatif vs chemin absolu 
+- . (point- indique dans lequel je suis)
+- .. ( indique le repertoire d'avant)
+- cd .. (Remonter au repertoire d'avant)
+- cp / mv <source> <cible>
+- touch créer un fichgier vide
+- nano modifie un fichier existant
+- nano peut aussi servir a créer ou modifier
+- Permissions:
+User (proprietaire)
+Group (Groupe proprietaire)
+Others (Autres)
+UGO 
+read (r=4)
+write (w=2)
+execute (x=1)
+symbolique chmod 
+- adduser <nom>
+- passwd <nom>
+
+-rmdir (Effacer repertoire VIDE)
+-rm -r (Remove de maniere recursive - tout le contenu)
+- whoami
+- cat /etc/passwd
+- ip a (trouver adresse ip)
+- adresse ip ping (permet de savoir si l'adresse ip est accessible)
+
+
+
+
+
